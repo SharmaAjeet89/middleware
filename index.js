@@ -5,15 +5,14 @@ const app = express();
 
 const logRequest = (req, res, next) => {
   // Write your code here
-  if (req.method === 'GET' && req.path === '/') {
-    console.log(`Method: ${req.method}, Path: ${req.path}`);
-}
+ console.log(req.method );
+ console.log(req.path);
 next();
 };
-app.use(logRequest);
+// app.use(logRequest);
 // This route should only be accessible after passing through the 'logRequest' middleware. 
 // Make necessary changes in the route below.
-app.get("/", (req, res) => {
+app.get("/", logRequest,(req, res) => {
   res.send("Coding Ninjas!");
 });
 
